@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements AccionesCamaraFra
     }
 
     public void init(){
-        accionesCamaraFragment = new AccionesCamaraFragment();
+        accionesCamaraFragment = AccionesCamaraFragment.newInstance();
         camaraFragment = new CamaraFragment();
     }
 
@@ -44,6 +44,11 @@ public class MainActivity extends AppCompatActivity implements AccionesCamaraFra
         int facing_change = camaraFragment.getCameraView().getFacing() == CameraKit.Constants.FACING_BACK
                 ? CameraKit.Constants.FACING_FRONT : CameraKit.Constants.FACING_BACK;
         camaraFragment.getCameraView().setFacing(facing_change);
+    }
+
+    @Override
+    public void onClickBtnCapturarImagen() {
+
     }
 
     @Override

@@ -19,37 +19,18 @@ import android.widget.Button;
  * create an instance of this fragment.
  */
 public class AccionesCamaraFragment extends Fragment implements View.OnClickListener{
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private OnFragmentInteractionListener mListener;
     private Button btnGirarCamara;
-
+    private Button btnCapturarImagen;
 
     public AccionesCamaraFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AccionesCamaraFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AccionesCamaraFragment newInstance(String param1, String param2) {
+    public static AccionesCamaraFragment newInstance() {
         AccionesCamaraFragment fragment = new AccionesCamaraFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -57,10 +38,6 @@ public class AccionesCamaraFragment extends Fragment implements View.OnClickList
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -76,12 +53,19 @@ public class AccionesCamaraFragment extends Fragment implements View.OnClickList
     public void bindUI(View view){
         btnGirarCamara = view.findViewById(R.id.btnGirarCamara);
         btnGirarCamara.setOnClickListener(this);
+        btnCapturarImagen = view.findViewById(R.id.btnCapturarImagen);
+        btnCapturarImagen.setOnClickListener(this);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonGirarCamaraPressed() {
         if (mListener != null) {
             mListener.onClickBtnGirarCamara();
+        }
+    }
+
+    public void onButtonCapturarImagen() {
+        if (mListener != null) {
+            mListener.onClickBtnCapturarImagen();
         }
     }
 
@@ -108,6 +92,9 @@ public class AccionesCamaraFragment extends Fragment implements View.OnClickList
             case R.id.btnGirarCamara:
                 onButtonGirarCamaraPressed();
                 break;
+            case R.id.btnCapturarImagen:
+                onButtonCapturarImagen();
+                break;
         }
     }
 
@@ -123,5 +110,6 @@ public class AccionesCamaraFragment extends Fragment implements View.OnClickList
      */
     public interface OnFragmentInteractionListener {
         void onClickBtnGirarCamara();
+        void onClickBtnCapturarImagen();
     }
 }

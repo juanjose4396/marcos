@@ -1,13 +1,12 @@
 package com.fesven.marcos;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 
 
 /**
@@ -21,8 +20,9 @@ import android.widget.Button;
 public class AccionesCamaraFragment extends Fragment implements View.OnClickListener{
 
     private OnFragmentInteractionListener mListener;
-    private Button btnGirarCamara;
-    private Button btnCapturarImagen;
+    private ImageView btnGirarCamara;
+    private ImageView btnCapturarImagen;
+    private ImageView btnFlash;
 
     public AccionesCamaraFragment() {
         // Required empty public constructor
@@ -53,8 +53,10 @@ public class AccionesCamaraFragment extends Fragment implements View.OnClickList
     public void bindUI(View view){
         btnGirarCamara = view.findViewById(R.id.btnGirarCamara);
         btnGirarCamara.setOnClickListener(this);
-        btnCapturarImagen = view.findViewById(R.id.btnCapturarImagen);
+        btnCapturarImagen = view.findViewById(R.id.btnCapturar);
         btnCapturarImagen.setOnClickListener(this);
+        btnFlash = view.findViewById(R.id.btnFlash);
+        btnFlash.setOnClickListener(this);
     }
 
     public void onButtonGirarCamaraPressed() {
@@ -66,6 +68,12 @@ public class AccionesCamaraFragment extends Fragment implements View.OnClickList
     public void onButtonCapturarImagen() {
         if (mListener != null) {
             mListener.onClickBtnCapturarImagen();
+        }
+    }
+
+    public void onButtonFlash(){
+        if (mListener != null) {
+            mListener.onClickBtnFlash();
         }
     }
 
@@ -92,8 +100,11 @@ public class AccionesCamaraFragment extends Fragment implements View.OnClickList
             case R.id.btnGirarCamara:
                 onButtonGirarCamaraPressed();
                 break;
-            case R.id.btnCapturarImagen:
+            case R.id.btnCapturar:
                 onButtonCapturarImagen();
+                break;
+            case R.id.btnFlash:
+                onButtonFlash();
                 break;
         }
     }
@@ -111,5 +122,6 @@ public class AccionesCamaraFragment extends Fragment implements View.OnClickList
     public interface OnFragmentInteractionListener {
         void onClickBtnGirarCamara();
         void onClickBtnCapturarImagen();
+        void onClickBtnFlash();
     }
 }

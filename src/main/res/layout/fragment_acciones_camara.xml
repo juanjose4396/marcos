@@ -11,28 +11,43 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <Button
+        <ImageView
             android:id="@+id/btnGirarCamara"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="GIRAR"
-            app:layout_constraintEnd_toStartOf="@+id/btnCapturarImagen"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/selfie"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCapturar"
+            app:layout_constraintEnd_toStartOf="@+id/btnCapturar"
+            app:layout_constraintTop_toTopOf="@+id/btnCapturar" />
+
+        <ImageView
+            android:id="@+id/btnCapturar"
+            android:layout_width="150dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/capturar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btnCapturarImagen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btnGirarCamara"
-            app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/btnFlash"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/flash"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCapturar"
+            app:layout_constraintStart_toEndOf="@+id/btnCapturar"
+            app:layout_constraintTop_toTopOf="@+id/btnCapturar" />
     </android.support.constraint.ConstraintLayout>
 
 </FrameLayout>
